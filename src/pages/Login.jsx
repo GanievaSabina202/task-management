@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify'
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const navigate = useNavigate()
@@ -17,6 +18,7 @@ const Login = () => {
                 userName,
                 password,
             })
+
             toast.success('You are successfully signed in', {
                 position: "top-right",
                 autoClose: 1500,
@@ -64,8 +66,6 @@ const Login = () => {
         }
     }
 
-
-
     return (
         <>
             <ToastContainer />
@@ -81,7 +81,11 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder='Password'
                     type='text' />
-                <button type='submit'>Sign in</button>
+                <button type='submit'>Daxil ol</button>
+
+                <br /><br /><br />
+                <span>Qeydiyyatdan kecin</span><br />
+                <Link to="/signup">Sign in</Link>
             </form>
         </>
     )
