@@ -1,15 +1,14 @@
+import { Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/SignUp';
 function App() {
   return (
-    <>
-      <div>
-        Bura Filan Cafedir, Gozeldir eladir.
-
-        <div>Sifarislerin siyahisi</div>
-
-        <div>Sonlandırılan sifarişlərin cemi </div>
-
-      </div>
-    </>
+    <Routes>
+      <Route exact path="/" element={<Home />} />
+      <Route exact path="/login" element={<Login />} />
+      <Route exact path="/signup" element={<Signup />} />
+    </Routes>
   );
 }
 
