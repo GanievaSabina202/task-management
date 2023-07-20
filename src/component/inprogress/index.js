@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { useSelector } from 'react-redux';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
 import styles from '../todo/todo.module.css';
 
 const InProgress = () => {
@@ -12,7 +15,7 @@ const InProgress = () => {
     <>
       <Droppable droppableId="inProgress">
         {(provided, snapshot) => (
-          <div style={{ backgroundColor: snapshot.isDraggingOver ? 'grey' : 'lightgray', padding: "20px", width: "250px", borderRadius:'5px'  }} >
+          <div style={{ backgroundColor: snapshot.isDraggingOver ? 'grey' : 'lightgray', padding: "20px", width: "250px", borderRadius: '5px' }} >
             <h5>In Progress</h5>
             <div className="characters" {...provided.droppableProps} ref={provided.innerRef}>
               {inProgress.map(({ id, text, time }, index) => {
@@ -24,10 +27,17 @@ const InProgress = () => {
                         ref={provided.innerRef}
                         {...provided.draggableProps} {...provided.dragHandleProps}
                       >
-                        <p>
-                          {text}
-                        </p>
-                        <span>{time}</span>
+                        <p> {text} </p>
+                        <div style={{ display: "flex", alignItems: 'center', justifyContent: "space-between" }}>
+                          <span> {time} </span>
+                          <IconButton aria-label="delete" size="small">
+                            <DeleteIcon />
+                          </IconButton>
+                          <IconButton aria-label="edit" size="small">
+                            <EditIcon />
+                          </IconButton>
+                        </div>
+
                       </div>
                     )}
                   </Draggable>
