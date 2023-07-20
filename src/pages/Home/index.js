@@ -5,12 +5,16 @@ import InProgress from '../../component/inprogress';
 import InReview from '../../component/inreview';
 import Done from '../../component/done';
 import Header from '../../component/header';
+import { useDispatch } from 'react-redux'
+import { todoDrag } from '../../redux/features/tasks/tasksSlice';
 
 const Home = () => {
+  let dispatch = useDispatch()
 
   const onDragEnd = (result) => {
-    console.log(result);
-  }
+    dispatch(todoDrag(result));
+  };
+
 
   return (
     <>
