@@ -15,7 +15,8 @@ export const tasksSlice = createSlice({
       state.tasks = [action.payload, ...state.tasks];
     },
     deleteTask: (state, action) => {
-      state.tasks = state.tasks.filter((tasksItem) => tasksItem.id !== action.payload);
+      const index = state[action.payload.column].findIndex((tasks) => tasks.id === action.payload.id);
+      state[action.payload.column].splice(index, 1);
     },
     todoDrag: (state, action) => {
       const result = action.payload;

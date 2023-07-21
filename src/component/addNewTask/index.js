@@ -20,7 +20,6 @@ const AddNewTasks = () => {
             },
         );
         if (value) {
-            console.log(value);
             dispatch(
                 addToTask({
                     id: nanoid(),

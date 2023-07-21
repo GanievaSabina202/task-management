@@ -1,15 +1,12 @@
 import React, { useState } from 'react';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { useSelector } from 'react-redux';
-import IconButton from '@mui/material/IconButton';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
+import DeleteButton from '../ui/deleteButton/deleteButton';
+import EditButton from '../ui/editButton/EditButton';
 import styles from '../todo/todo.module.css';
 
 const InProgress = () => {
   const inProgress = useSelector((state) => state.task.inProgress);
-
-  console.log("inProgress", inProgress);
 
   return (
     <>
@@ -30,12 +27,8 @@ const InProgress = () => {
                         <p> {text} </p>
                         <div style={{ display: "flex", alignItems: 'center', justifyContent: "space-between" }}>
                           <span> {time} </span>
-                          <IconButton aria-label="delete" size="small">
-                            <DeleteIcon />
-                          </IconButton>
-                          <IconButton aria-label="edit" size="small">
-                            <EditIcon />
-                          </IconButton>
+                          <DeleteButton item={inProgress} column='inProgress' />
+                          <EditButton />
                         </div>
 
                       </div>
