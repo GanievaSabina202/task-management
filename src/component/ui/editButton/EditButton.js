@@ -13,8 +13,8 @@ const EditButton = ({ item, column }) => {
         const { value } = await Swal.fire(
             {
                 input: "textarea",
-                inputLabel: "New Task",
-                inputPlaceholder: "Write a new task",
+                inputLabel: "Edit Task",
+                inputPlaceholder: "Write a edit task",
                 showCancelButton: true,
             },
         );
