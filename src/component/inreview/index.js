@@ -28,7 +28,7 @@ const InReview = () => {
                         <div style={{ display: "flex", alignItems: 'center', justifyContent: "space-between" }}>
                           <span> {time} </span>
                           <DeleteButton item={InReview} column='InReview' />
-                          <EditButton />
+                          <EditButton item={InReview} column='InReview'/>
                         </div>
 
                       </div>

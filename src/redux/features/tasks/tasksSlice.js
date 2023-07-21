@@ -14,10 +14,17 @@ export const tasksSlice = createSlice({
     addToTask: (state, action) => {
       state.tasks = [action.payload, ...state.tasks];
     },
+    editTask: (state, action) => {
+      const index = state[action.payload.column].findIndex((todo) => todo.id === action.payload.id);
+      state[action.payload.column][index].text = action.payload.text;
+      state[action.payload.column][index].time = action.payload.time;
+    },
+
     deleteTask: (state, action) => {
       const index = state[action.payload.column].findIndex((tasks) => tasks.id === action.payload.id);
       state[action.payload.column].splice(index, 1);
     },
+
     todoDrag: (state, action) => {
       const result = action.payload;
       if (!result.destination) return;
@@ -43,6 +50,6 @@ export const tasksSlice = createSlice({
   },
 })
 
-export const { addToTask, todoDrag, deleteTask } = tasksSlice.actions
+export const { addToTask, todoDrag, deleteTask, editTask } = tasksSlice.actions
 
 export default tasksSlice.reducer

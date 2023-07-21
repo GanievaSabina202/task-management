@@ -28,7 +28,7 @@ const InProgress = () => {
                         <div style={{ display: "flex", alignItems: 'center', justifyContent: "space-between" }}>
                           <span> {time} </span>
                           <DeleteButton item={inProgress} column='inProgress' />
-                          <EditButton />
+                          <EditButton item={inProgress} column='inProgress'/>
                         </div>
 
                       </div>

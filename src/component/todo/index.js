@@ -29,7 +29,7 @@ const Todo = () => {
                         <div style={{ display: "flex", alignItems: 'center', justifyContent: "space-between" }}>
                           <span> {time} </span>
                           <DeleteButton item={tasks} column='tasks' />
-                          <EditButton />
+                          <EditButton item={tasks} column='tasks'/>
                         </div>
 
                       </div>

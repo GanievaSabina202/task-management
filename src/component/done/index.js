@@ -29,7 +29,7 @@ const Done = () => {
                         <div style={{ display: "flex", alignItems: 'center', justifyContent: "space-between" }}>
                           <span> {time} </span>
                           <DeleteButton item={Done} column='Done' />
-                          <EditButton />
+                          <EditButton item={Done} column='Done' />
                         </div>
 
                       </div>
