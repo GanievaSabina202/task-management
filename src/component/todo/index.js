@@ -13,7 +13,7 @@ const Todo = () => {
     <>
       <Droppable droppableId="tasks">
         {(provided, snapshot) => (
-          <div style={{ backgroundColor: snapshot.isDraggingOver ? 'grey' : '#bb86fc', padding: "20px", width: "250px", borderRadius: '5px' }} >
+          <div style={{ backgroundColor: snapshot.isDraggingOver ? 'grey' : '#bb86fc', padding: "20px", width: "250px", height: 'fit-content', borderRadius: '5px' }} >
             <h5 style={{ color: "#fff", fontSize: "18px", color: 'rgb(255, 255, 255)', margin: 0 }}>Todo</h5>
             <div className="characters" {...provided.droppableProps} ref={provided.innerRef}>
               {tasks.map(({ id, text, time, username }, index) => {

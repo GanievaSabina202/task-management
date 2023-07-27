@@ -12,7 +12,7 @@ const InProgress = () => {
     <>
       <Droppable droppableId="inProgress">
         {(provided, snapshot) => (
-          <div style={{ backgroundColor: snapshot.isDraggingOver ? 'grey' : '#e7d074', padding: "20px", width: "250px", borderRadius: '5px' }} >
+          <div style={{ backgroundColor: snapshot.isDraggingOver ? 'grey' : '#e7d074', padding: "20px", width: "250px",  height: 'fit-content',  borderRadius: '5px' }} >
             <h5 style={{ color: "#fff", fontSize: "18px", color: 'rgb(255, 255, 255)', margin: 0 }}>In Progress</h5>
             <div className="characters" {...provided.droppableProps} ref={provided.innerRef}>
               {inProgress.map(({ id, text, time, username }, index) => {
