@@ -18,6 +18,7 @@ export const tasksSlice = createSlice({
       const index = state[action.payload.column].findIndex((todo) => todo.id === action.payload.id);
       state[action.payload.column][index].text = action.payload.text;
       state[action.payload.column][index].time = action.payload.time;
+      state[action.payload.column][index].username = action.payload.username;
     },
     deleteTask: (state, action) => {
       const index = state[action.payload.column].findIndex((tasks) => tasks.id === action.payload.id);

@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { DragDropContext } from "react-beautiful-dnd";
 import Todo from '../../component/todo';
 import InProgress from '../../component/inprogress';
 import InReview from '../../component/inreview';
 import Done from '../../component/done';
 import Header from '../../component/header';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { todoDrag } from '../../redux/features/tasks/tasksSlice';
 
 const Home = () => {
@@ -14,7 +14,6 @@ const Home = () => {
   const onDragEnd = (result) => {
     dispatch(todoDrag(result));
   };
-
 
   return (
     <>

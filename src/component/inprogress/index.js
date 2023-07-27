@@ -13,9 +13,9 @@ const InProgress = () => {
       <Droppable droppableId="inProgress">
         {(provided, snapshot) => (
           <div style={{ backgroundColor: snapshot.isDraggingOver ? 'grey' : '#e7d074', padding: "20px", width: "250px", borderRadius: '5px' }} >
-            <h5 style={{ color: "#fff", fontSize: "18px", color: 'rgb(255, 255, 255)', margin: 0}}>In Progress</h5>
+            <h5 style={{ color: "#fff", fontSize: "18px", color: 'rgb(255, 255, 255)', margin: 0 }}>In Progress</h5>
             <div className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-              {inProgress.map(({ id, text, time }, index) => {
+              {inProgress.map(({ id, text, time, username }, index) => {
                 return (
                   <Draggable key={id} draggableId={id} index={index}>
                     {(provided) => (
@@ -24,6 +24,7 @@ const InProgress = () => {
                         ref={provided.innerRef}
                         {...provided.draggableProps} {...provided.dragHandleProps}
                       >
+                        <span>{username}</span>
                         <p> {text} </p>
                         <div style={{ display: "flex", alignItems: 'center', justifyContent: "space-between" }}>
                           <span> {time} </span>

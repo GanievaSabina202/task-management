@@ -14,9 +14,9 @@ const Todo = () => {
       <Droppable droppableId="tasks">
         {(provided, snapshot) => (
           <div style={{ backgroundColor: snapshot.isDraggingOver ? 'grey' : '#bb86fc', padding: "20px", width: "250px", borderRadius: '5px' }} >
-            <h5 style={{ color: "#fff", fontSize: "18px", color: 'rgb(255, 255, 255)', margin: 0}}>Todo</h5>
+            <h5 style={{ color: "#fff", fontSize: "18px", color: 'rgb(255, 255, 255)', margin: 0 }}>Todo</h5>
             <div className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-              {tasks.map(({ id, text, time }, index) => {
+              {tasks.map(({ id, text, time, username }, index) => {
                 return (
                   <Draggable key={id} draggableId={id} index={index}>
                     {(provided) => (
@@ -25,11 +25,12 @@ const Todo = () => {
                         ref={provided.innerRef}
                         {...provided.draggableProps} {...provided.dragHandleProps}
                       >
+                        <span>{username}</span>
                         <p> {text} </p>
                         <div style={{ display: "flex", alignItems: 'center', justifyContent: "space-between" }}>
                           <span> {time} </span>
                           <DeleteButton item={tasks} column='tasks' />
-                          <EditButton item={tasks} column='tasks'/>
+                          <EditButton item={tasks} column='tasks' />
                         </div>
 
                       </div>

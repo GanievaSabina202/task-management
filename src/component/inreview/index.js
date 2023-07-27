@@ -13,9 +13,9 @@ const InReview = () => {
       <Droppable droppableId="InReview">
         {(provided, snapshot) => (
           <div style={{ backgroundColor: snapshot.isDraggingOver ? 'grey' : 'rgb(123 202 255)', padding: "20px", width: "250px", borderRadius: '5px' }} >
-            <h5 style={{ color: "#fff", fontSize: "18px", color: 'rgb(255, 255, 255)', margin: 0}}>InReview</h5>
+            <h5 style={{ color: "#fff", fontSize: "18px", color: 'rgb(255, 255, 255)', margin: 0 }}>InReview</h5>
             <div className="characters" {...provided.droppableProps} ref={provided.innerRef}>
-              {InReview.map(({ id, text, time }, index) => {
+              {InReview.map(({ id, text, time, username }, index) => {
                 return (
                   <Draggable key={id} draggableId={id} index={index}>
                     {(provided) => (
@@ -24,6 +24,7 @@ const InReview = () => {
                         ref={provided.innerRef}
                         {...provided.draggableProps} {...provided.dragHandleProps}
                       >
+                        <span>{username}</span>
                         <p> {text} </p>
                         <div style={{ display: "flex", alignItems: 'center', justifyContent: "space-between" }}>
                           <span> {time} </span>
